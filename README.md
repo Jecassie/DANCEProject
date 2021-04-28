@@ -1,4 +1,4 @@
-# DANCEProject
+# DANCE Project
 
 ## About this project
 Our study is designed as a cross sectional study. All the baseline data were collected from DANCE (Diabetes ANd CarohydratEs) study which is a randomized control trial aiming to contribute to an evidence based dietary recommendation for type-1 Diabetes patients. DANCE study compares the effect of traditional diabetic diet, moderately low carbohydrate diet and very low carbohydrate diet (not ketogenic diet) on insulin requirements in the patients with T1DM also glycemic variability and metabolic control. With the data from DANCE study, we will describe the baseline dietary habits of a group of adults with type 1 diabetes and investigate the association between quality and quantity of carbohydrates and baseline glycemic markers. We have followed a validated FFQ to get the information on the quality and quantity of the carbohydrate and the association with glycemic marker was assessed by blood sample of the adults with T1DM.
@@ -82,4 +82,68 @@ ggplot(Excl_Quality, aes(`HbA1c (mmol/mol)`, `Sugar/g`))+
   labs(title = "HbA1c and simple sugar intake based on BMI and gender")
 ```
 ![](Image/sugarandhba1c.jpeg)
+
+### Statistical Analysis
+Since it is an ongoing project, I will not show the results but rather than codes. I will update the results afterwards.
+
+```R
+Excl_Quality_Male<- Excl_Quality[Excl_Quality$Gender=="Male",]
+Excl_Quality_Female<- Excl_Quality[Excl_Quality$Gender=="Female",]
+```
+
+This is the basic linear regression model for hba1c and selected variables
+```R
+lmhb<-lm( `HbA1c (mmol/mol)`~ `Duration of Diabetes/yrs`+
+            Gender+ BMI+`Sugar/g`+ `Wholegrain total (g)`+`Energy (kcal)`,
+          data= Excl_Quality)
+summary(lmhb)
+
+vif (lmhb)
+confint(lmhb)
+coef(lmhb)
+predict(lmhb)
+
+plot(lmhb,1)
+plot(lmhb,2) 
+plot(lmhb,3)
+plot(lmhb,4)
+```
+
+This part look at is there any gender differences
+
+ ```R
+lmhbfemale<-lm( `HbA1c (mmol/mol)`~  `Sugar/g`+BMI+ `Energy (kcal)` , data= Excl_Quality_Female)
+summary(lmhbfemale)
+
+lmhbmale<-lm( `HbA1c (mmol/mol)`~ `Sugar/g`
+              +BMI+ `Energy (kcal)` , data= Excl_Quality_Male)
+summary(lmhbmale)
+```
+
+Linear Regression model for time in range (%) 28 days and selected variables
+
+```R
+lmtime<-lm( `Time in range 1 (%)`~ `Duration of Diabetes/yrs`+
+              Gender+ BMI+`Sugar/g`+ `Wholegrain total (g)`+`Energy (kcal)`, data= Excl_Quality)
+summary(lmtime)
+
+vif (lmtime)
+confint(lmtime)
+coef(lmtime)
+predict(lmtime)
+
+plot(lmtime,1)
+plot(lmtime,2) 
+plot(lmtime,3)
+plot(lmtime,4)
+```
+
+![](Image/lmtimeqq.jpeg)
+
+
+I also look at other independent factors (y) such as means sensor gluocse 28 days and its SD and CV with the same format
+
+
+
+
 
