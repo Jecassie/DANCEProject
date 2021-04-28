@@ -83,7 +83,8 @@ ggplot(Excl_Quality, aes(`HbA1c (mmol/mol)`, `Sugar/g`))+
 ```
 ![](Image/sugarandhba1c.jpeg)
 
-### Statistical Analysis
+## Statistical Analysis
+### 28 days result from CGM period 1 to evaluate the quality of carbs
 Since it is an ongoing project, I will not show the results but rather than codes. I will update the results afterwards.
 
 ```R
@@ -145,6 +146,7 @@ plot(lmtime,4)
 
 
 I also look at other independent factors (y) such as means sensor gluocse 28 days and its SD and CV with the same format
+
 
 
 
