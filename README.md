@@ -14,7 +14,6 @@ Three sub areas of this aim
 ## Study Population
 A total of 65 type 1 diabetes patients were recruited from Akademiskt specialistcentrum, Solna, Stockholm 
 In total of (1)	55/65 participants were selected based on the active CGM time 28 days (more than 60% per day)
-The following code and graph shows the distribution of year of born and duration of diabetes in terms of gender. The blue dots also refer to the BMI, lighter blue means higher BMI.
 
 ```R
 ggplot(Table1_Basic_information, aes( `Year of Born`, `Duration of Diabetes/yrs`))+
@@ -24,3 +23,13 @@ ggplot(Table1_Basic_information, aes( `Year of Born`, `Duration of Diabetes/yrs`
   labs(title = "Year of born and duration of diabetes in terms of gender")
 ```
 ![](Image/yearandduration.jpeg)
+
+```R
+ggplot(Table1_Basic_information, aes(`Have any of the relatives diabetes mellitus?`, BMI))+
+  geom_jitter( aes(col=Gender))+ 
+  facet_wrap(.~`Marital Status`)+
+  labs(title = "Number of relatives have diabetes and BMI")
+```
+![](Image/Relativesandbmi.jpeg)
+
+
