@@ -5,53 +5,69 @@ attach(Table1_Basic_information)
 theme_update(plot.title=element_text(hjust = 0.5))
 Table1_Basic_information$Gender= 
   factor(Table1_Basic_information$Gender, levels=c(0,1), labels = c("Male", "Female"))
+  
 Table1_Basic_information$`Does the patient use any tobacco?`= 
   factor(Table1_Basic_information$`Does the patient use any tobacco?`, levels=c(0,1), labels = c("No", "Yes"))
+  
 Table1_Basic_information$`Highest level of education`= 
   factor(Table1_Basic_information$`Highest level of education`, levels=c(0,1,2,3), labels = c("Elementary school", "College","University","Others"))
+  
 Table1_Basic_information$Employment= 
   factor(Table1_Basic_information$Employment, levels=c(0,1,2,3,4,5), labels = c("Employee", "Retired","On leave","Student","Unemployed","Other"))
+  
 Table1_Basic_information$`Marital Status`= 
   factor(Table1_Basic_information$`Marital Status`, levels=
            c(0,1,2,3,4,5,6), labels = c("Single", "Married","Living with partner","Living Apart","Divorced","Widowed","Other"))
+           
 Table1_Basic_information$`Has the patient CGM  or FGM equipment?`= 
   factor(Table1_Basic_information$`Has the patient CGM  or FGM equipment?`, levels=c(0,1,2), labels = c("Has an own CGM", "Has an own FGM", "Will receive a CGM / FGM after the screening visit"))
+  
 Table1_Basic_information$`Is the patient taking any other medication than insulin?`=
   factor(Table1_Basic_information$`Is the patient taking any other medication than insulin?`, levels=c(0,1), labels = c("No", "Yes"))
+  
 Table1_Basic_information$`Does the patient administer insulin by injection or pump?`=
   factor(Table1_Basic_information$`Does the patient administer insulin by injection or pump?`, levels=c(0,1), labels = c("Injection", "Pump"))
+  
 Table1_Basic_information$`Any non serious hypoglycemias during the last year?`= 
   factor(Table1_Basic_information$`Any non serious hypoglycemias during the last year?`, levels=c(0,1), labels = c("No", "Yes"))
+  
 Table1_Basic_information$`Any severe hypoglycemias during the last year?`= 
   factor(Table1_Basic_information$`Any severe hypoglycemias during the last year?`, levels=c(0,1), labels = c("No", "Yes"))
+  
 Table1_Basic_information$`Has the patient been diagnosed with retinopathy?`= 
   factor(Table1_Basic_information$`Has the patient been diagnosed with retinopathy?`, levels=c(0,1), labels = c("No", "Yes"))
+  
 Table1_Basic_information$`Has the patient any ongoing medical history except for diabetes mellitus type 1 and retinopathy?`= 
   factor(Table1_Basic_information$`Has the patient any ongoing medical history except for diabetes mellitus type 1 and retinopathy?`, levels=c(0,1), labels = c("No", "Yes"))
   
   par(mfrow=c(2,2))
   ###start of the graph
 Summary(Table1_Basic_information)
+
 ###Distribution of duration of diabetes and Gender
 ggplot(Table1_Basic_information, aes(`Year of Born`, `Duration of Diabetes/yrs`))+
   geom_jitter(aes(colour=Gender))+
   geom_smooth(method=lm, size=0.5, colour="black")+
   labs(title = "Aim 2-Duration of Type 1 diabetes and BMI")
+  
 ####Distribution of education and employment based on marital status
 ggplot(Table1_Basic_information, aes(`Highest level of education`, Employment))+ 
   geom_point( aes(col= `Marital Status`), size=3)+
   facet_wrap(.~Gender)+
   labs(title = "Level of Education and Employment Status based on Gender")
+  
 ###Distribution of tabocco use in terms of gender
 ggplot(Table1_Basic_information, aes( `Duration of Diabetes/yrs`, `Does the patient use any tobacco?`))+ 
   geom_jitter( aes(col=Gender))+ 
   facet_wrap(.~Employment)+
   labs(title = "Tobacco use and duration of type 1 diabetes")
+  
 ###Relatives Diabets
 ggplot(Table1_Basic_information, aes(`Have any of the relatives diabetes mellitus?`, `Duration of Diabetes/yrs`))+
   geom_jitter( aes(col=Gender))+ 
   facet_wrap(.~`Marital Status`)+
   labs(title = "Number of relatives have diabetes and duration of T1DM")
+  
 ###Hypoglycemia
 ggplot(Table1_Basic_information, aes(`Any severe hypoglycemias during the last year?`, `Does the patient administer insulin by injection or pump?`))+
   geom_jitter( aes(colour=Gender))+ 
@@ -86,16 +102,20 @@ shapiro.test(Excl_Quality$`Active CGM time 1 (%)`)
 shapiro.test(Excl_Quality$`CGM period 1 (days)`)
 hist(Excl_Quality$`P-Creatinine (mikromol/L)`)
 qqplot(Excl_Quality$`P-Creatinine (mikromol/L)`, Excl_Quality$`HbA1c (mmol/mol)`)
+
 ###graph
 theme_update(plot.title=element_text(hjust = 0.5))
+
 ####Histogram of active CGM
 ggplot(Excl_Quality, aes(`Active CGM time 1 (%)`))+geom_boxplot( aes(colour= Gender), vertical=TRUE)
+
 ###HbA1c VS whole grain intake in terms of BMI and Gender
 ggplot(Excl_Quality, aes (`HbA1c (mmol/mol)`, `Wholegrain total (g)`,)) + 
   geom_boxplot(aes(group=1))+
   geom_point( aes(colour= BMI))+ 
   facet_wrap(.~Gender)+ 
   labs(title = "HbA1c VS whole grain intake in terms of BMI and Gender")
+  
 ###Blood gluocse level VS whole grain intake in terms of BMI and gender
 ggplot(Excl_Quality, aes (`Mean sensor glucose 1 (mmol/l)`, `Wholegrain total (g)`))+
   geom_boxplot(  aes(group=1))+
