@@ -1,5 +1,5 @@
 ####Basic
-### 55 population, excluded
+### 55 population, excluded due to less active CGM time
 par(mfrow=c(2,2))
 attach(Table1_Basic_information)
 theme_update(plot.title=element_text(hjust = 0.5))
