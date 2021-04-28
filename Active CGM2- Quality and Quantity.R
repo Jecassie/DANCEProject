@@ -13,6 +13,9 @@ allsutset14<-regsubsets( `HbA1c (mmol/mol)`~ Gender+ `Duration of Diabetes/yrs`+
 plot(allsutset14, scale = "adjr2")
 
 
+
+
+
 ###HbA1c VS whole grain intake in terms of BMI and Gender
 ggplot(Excl_activecgm2, aes (`HbA1c (mmol/mol)`, `Wholegrain total (g)`,)) + 
   geom_boxplot(aes(group=1))+
