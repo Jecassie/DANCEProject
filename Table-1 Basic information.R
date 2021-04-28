@@ -33,10 +33,11 @@ Table1_Basic_information$`Has the patient any ongoing medical history except for
 ###start of the graph
 Summary(Table1_Basic_information)
 ###Distribution of duration of diabetes and Gender
-ggplot(Table1_Basic_information, aes(`Year of Born`, `Duration of Diabetes/yrs`))+
-  geom_jitter( aes(colour= Gender))+
-  geom_smooth(method=lm, se=FALSE, size=0.5, colour="black")+
-  labs(title = "Duration of Type 1 diabetes and Year of Born")
+ggplot(Table1_Basic_information, aes( `Year of Born`, `Duration of Diabetes/yrs`))+
+  geom_jitter( aes(colour= BMI))+
+  facet_wrap(.~Gender)+
+  geom_smooth( method=lm, size=0.5, colour="black")+
+  labs(title = "Year of born and duration of diabetes in terms of gender")
 ####Distribution of education and employment based on marital status
 ggplot(Table1_Basic_information, aes(`Highest level of education`, Employment))+ 
   geom_point( aes(col= `Marital Status`), size=3)+
