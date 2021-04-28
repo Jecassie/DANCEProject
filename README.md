@@ -15,6 +15,8 @@ Three sub areas of this aim
 A total of 65 type 1 diabetes patients were recruited from Akademiskt specialistcentrum, Solna, Stockholm 
 In total of (1)	55/65 participants were selected based on the active CGM time 28 days (more than 60% per day)
 
+The following codes and graphs show the baseline characteristics of our study population
+
 ```R
 ggplot(Table1_Basic_information, aes( `Year of Born`, `Duration of Diabetes/yrs`))+
   geom_jitter( aes(colour= BMI))+
@@ -31,5 +33,15 @@ ggplot(Table1_Basic_information, aes(`Have any of the relatives diabetes mellitu
   labs(title = "Number of relatives have diabetes and BMI")
 ```
 ![](Image/Relativesandbmi.jpeg)
+
+```R
+ggplot(Table1_Basic_information, aes(`Highest level of education`, Employment))+ 
+  geom_point( aes(col= `Marital Status`), size=3)+
+  facet_wrap(.~Gender)+
+  labs(title = "Level of Education and Employment Status based on Gender")
+  ```
+  
+  ![](Image/Educationandgender.jpeg)
+  
 
 
