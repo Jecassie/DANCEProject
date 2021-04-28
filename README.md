@@ -108,7 +108,8 @@ plot(lmhb,2)
 plot(lmhb,3)
 plot(lmhb,4)
 ```
-![](Image/lmbgres.jpeg)
+
+![](Image/lmhbres.jpeg)
 
 
 This part look at is there any gender differences
