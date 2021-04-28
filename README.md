@@ -73,18 +73,22 @@ ggplot(Table1_Basic_information, aes(`Any severe hypoglycemias during the last y
   geom_jitter( aes(colour=Gender))+ 
   facet_wrap(.~`Has the patient CGM  or FGM equipment?`)+
   labs(title = "Sever hypoglycemias and the methods of insulin injection")
+  
 ggplot(Table1_Basic_information, aes( `Any non serious hypoglycemias during the last year?`, `Has the patient been diagnosed with retinopathy?`))+
   geom_jitter( aes(colour=Gender))+
   facet_wrap(Table1_Basic_information$`Is the patient taking any other medication than insulin?`~. )+
   labs(title = "Retinopathy VS Non serious hypoglycemia based on medications rather than insulin")
+  
 ggplot(Table1_Basic_information, aes( `Total dose of basal insulin /day`, BMI))+
   geom_jitter( aes(colour=Gender))+
   labs(title = "Total dose of basal insulin/day VS BMI")+
   geom_abline()
+  
 ggplot(Table1_Basic_information, aes( `Total dose of mealtime insulin /day`, BMI))+
   geom_jitter( aes(colour=Gender))+
   labs(title = "Total dose of mealtime insulin/day VS BMI")+
   geom_abline()
+  
 ggplot( Table1_Basic_information, aes(`HbA1c (mmol/mol)`, BMI))+geom_jitter()
 
 ###Evaluation of Carbohyrdates-Active CGM 28 Days
