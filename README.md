@@ -1,5 +1,5 @@
 # DANCEProject
-##Introduction
+## Introduction
 
 About this project
 Dietary intake and glycemic markers in Stockholm adults with type 1 diabetes: cross-sectional analysis using baseline parameters from the DANCE-study
@@ -10,7 +10,7 @@ Three sub areas of this aim
 2. Investigate the quality of carbohyrdates and T1DM patients by using different statistical models
 3. Find the potential correlation/ models in terms of the quantity of carbohyrdates in T1DM patients
 
-##Study Population
+## Study Population
 ```R
 ggplot(Table1_Basic_information, aes( `Year of Born`, `Duration of Diabetes/yrs`))+
   geom_jitter( aes(colour= BMI))+
