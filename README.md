@@ -27,22 +27,22 @@ ggplot(Table1_Basic_information, aes( `Year of Born`, `Duration of Diabetes/yrs`
 ![](Image/yearandduration.jpeg)
 
 ```R
-ggplot(Table1_Basic_information, aes(`Have any of the relatives diabetes mellitus?`, BMI))+
+ggplot(Table1_Basic_information, aes( `Duration of Diabetes/yrs`, `Does the patient use any tobacco?`))+ 
   geom_jitter( aes(col=Gender))+ 
-  facet_wrap(.~`Marital Status`)+
-  labs(title = "Number of relatives have diabetes and BMI")
+  facet_wrap(.~Employment)+
+  labs(title = "Tobacco use and duration of type 1 diabetes")
 ```
 
-![](Image/Relativesandbmi.jpeg)
+![](Image/tobaccoandduration.jpeg)
 
 ```R
-ggplot(Table1_Basic_information, aes(`Highest level of education`, Employment))+ 
-  geom_point( aes(col= `Marital Status`), size=3)+
-  facet_wrap(.~Gender)+
-  labs(title = "Level of Education and Employment Status based on Gender")
+ggplot(Table1_Basic_information, aes(`Any severe hypoglycemias during the last year?`, `Does the patient administer insulin by injection or pump?`))+
+  geom_jitter( aes(colour=Gender))+ 
+  facet_wrap(.~`Has the patient CGM  or FGM equipment?`)+
+  labs(title = "Sever hypoglycemias and the methods of insulin injection")
   ```
   
-  ![](Image/Educationandgender.jpeg)
+  ![](Image/methods.jpeg)
   
 
 ```R
@@ -85,7 +85,7 @@ ggplot(Excl_Quality, aes(`HbA1c (mmol/mol)`, `Sugar/g`))+
 
 ## Statistical Analysis
 ### 28 days result from CGM period 1 to evaluate the quality of carbs
-Since it is an ongoing project, I will not show the results but rather than codes. I will update the results afterwards.
+Since it is an ongoing project, I will NOT show the results but rather than codes. I will update the results afterwards.
 
 ```R
 Excl_Quality_Male<- Excl_Quality[Excl_Quality$Gender=="Male",]
@@ -149,6 +149,53 @@ I also look at other independent factors (y) such as means sensor gluocse 28 day
 
 
 
+### 14 days result from CGM period 2 to evaluate the quality of carbs 
+
+```R
+lm2hb<-lm( `HbA1c (mmol/mol)`~`Duration of Diabetes/yrs`+ Gender+BMI+ `Sugar/g`+`Wholegrain total (g)`+
+             `Energy (kcal)`, data= Excl_activecgm2)
+summary(lm2hb)
+
+lm2hbfemale<-lm( `HbA1c (mmol/mol)`~ 
+                  `Wholegrain total (g)`
+                +BMI+ `Energy (kcal)` , data= Excl_activecgm2_Female)
+summary(lm2hbfemale)
+
+lm2hbmale<-lm( `HbA1c (mmol/mol)`~ `Wholegrain total (g)`
+              +BMI+ `Energy (kcal)` , data= Excl_activecgm2_Male)
+summary(lm2hbmale)
+```
+
+```R
+lm2time<-lm( `Time in Range 2 (%)`~`Duration of Diabetes/yrs`+ Gender+BMI+ `Sugar/g`+`Wholegrain total (g)`+
+             `Energy (kcal)`, data= Excl_activecgm2)
+summary(lm2time)
+
+lm2timefemale<-lm( `Time in Range 2 (%)`~ 
+                   `Wholegrain total (g)`
+                 +BMI+ `Energy (kcal)` , data= Excl_activecgm2_Female)
+summary(lm2timefemale)
+
+lm2timemale<-lm( `Time in Range 2 (%)`~ `Wholegrain total (g)`
+               +BMI+ `Energy (kcal)` , data= Excl_activecgm2_Male)
+summary(lm2timemale)
+```
+
+```R
+lm2mean<-lm( `Mean sensor glucose 2 (mmol/l)`~`Duration of Diabetes/yrs`+ Gender+BMI+
+               `Sugar/g`+`Wholegrain total (g)`+
+             `Energy (kcal)`, data= Excl_activecgm2)
+summary(lm2mean)
+
+lm2meanfemale<-lm( `Mean sensor glucose 2 (mmol/l)`~ 
+                     `Wholegrain total (g)`
+                   +BMI+ `Energy (kcal)` , data= Excl_activecgm2_Female)
+summary(lm2meanfemale)
+
+lm2meanmale<-lm( `Mean sensor glucose 2 (mmol/l)`~ `Wholegrain total (g)`
+                 +BMI+ `Energy (kcal)` , data= Excl_activecgm2_Male)
+summary(lm2meanmale)
+```
 
 
 
