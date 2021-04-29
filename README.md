@@ -14,6 +14,20 @@ Three sub areas of this aim
 A total of 65 type 1 diabetes patients were recruited from Akademiskt specialistcentrum, Solna, Stockholm 
 In total of (1)	55/65 participants were selected based on the active CGM time 28 days (more than 60% per day)
 
+# Anthropometric measurement
+  Weight/kg
+  Height/cm
+  Waist circumference (cm)
+  Systolic blood pressure (mmHg)
+  Diastolic blood pressure (mmHg)
+# Criteria
+  Over or equal to 20 years old.
+  BMI> 18.5 kg/m2.
+  No sever diseases such as kidney failures and cardiovascular diseases.
+  No pregnant female or lactate female.
+  Have been diagnosis T1DM for over 1 year.
+  C-peptide less than 0.3 ng/ml.
+
 The following codes and graphs show the baseline characteristics of our study population
 
 ```R
@@ -44,7 +58,7 @@ ggplot(Table1_Basic_information, aes(`Any severe hypoglycemias during the last y
   
   ![](Image/methods.jpeg)
   
-
+### Food Intake and biomarkers
 ```R
 ggplot(Excl_Quality, aes (`HbA1c (mmol/mol)`, `Wholegrain total (g)`,)) + 
   geom_boxplot(aes(group=1))+
@@ -83,9 +97,10 @@ ggplot(Excl_Quality, aes(`HbA1c (mmol/mol)`, `Sugar/g`))+
 ```
 ![](Image/sugarandhba1c.jpeg)
 
-## Statistical Analysis
+## Statistical Analysis 
+## Since it is an ongoing project, I will NOT show the results but rather than codes
+
 ### 28 days result from CGM period 1 to evaluate the quality of carbs
-Since it is an ongoing project, I will NOT show the results but rather than codes. I will update the results afterwards.
 
 ```R
 Excl_Quality_Male<- Excl_Quality[Excl_Quality$Gender=="Male",]
