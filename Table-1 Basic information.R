@@ -49,10 +49,10 @@ ggplot(Table1_Basic_information, aes( `Duration of Diabetes/yrs`, `Does the pati
   facet_wrap(.~Employment)+
   labs(title = "Tobacco use and duration of type 1 diabetes")
 ###Relatives Diabets
-ggplot(Table1_Basic_information, aes(`Have any of the relatives diabetes mellitus?`, `Duration of Diabetes/yrs`))+
+ggplot(Table1_Basic_information, aes(`Have any of the relatives diabetes mellitus?`, BMI))+
   geom_jitter( aes(col=Gender))+ 
   facet_wrap(.~`Marital Status`)+
-  labs(title = "Number of relatives have diabetes and duration of T1DM")
+  labs(title = "Number of relatives have diabetes and BMI")
 ###Hypoglycemia
 ggplot(Table1_Basic_information, aes(`Any severe hypoglycemias during the last year?`, `Does the patient administer insulin by injection or pump?`))+
   geom_jitter( aes(colour=Gender))+ 
@@ -70,7 +70,7 @@ ggplot(Table1_Basic_information, aes( `Total dose of mealtime insulin /day`, BMI
   geom_jitter( aes(colour=Gender))+
   labs(title = "Total dose of mealtime insulin/day VS BMI")+
   geom_abline()
-ggplot( Table1_Basic_information, aes(`HbA1c (mmol/mol)`, BMI))+geom_jitter()
+
 
 
 
