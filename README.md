@@ -12,7 +12,7 @@ Three sub areas of this aim
 
 ### Study Population
 A total of 65 type 1 diabetes patients were recruited from Akademiskt specialistcentrum, Solna, Stockholm 
-In total of (1)	55/65 participants were selected based on the active CGM time 28 days (more than 60% per day)
+In total of 55/65 participants were selected based on the active CGM time 28 days (more than 60% per day)
 
 # Anthropometric measurement
   Weight/kg
@@ -165,6 +165,7 @@ I also look at other independent factors (y) such as means sensor gluocse 28 day
 
 
 ### 14 days result from CGM period 2 to evaluate the quality of carbs 
+### We mainly focus on 28 days result but for the comprehensive purpose we also look at 14 days result 
 
 ```R
 lm2hb<-lm( `HbA1c (mmol/mol)`~`Duration of Diabetes/yrs`+ Gender+BMI+ `Sugar/g`+`Wholegrain total (g)`+
