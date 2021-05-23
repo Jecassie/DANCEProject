@@ -1,14 +1,14 @@
 # DANCE Project
 
 ## About this project
-Our study is designed as a cross sectional study. All the baseline data were collected from DANCE (Diabetes ANd CarohydratEs) study which is a randomized control trial aiming to contribute to an evidence based dietary recommendation for type-1 Diabetes patients. DANCE study compares the effect of traditional diabetic diet, moderately low carbohydrate diet and very low carbohydrate diet (not ketogenic diet) on insulin requirements in the patients with T1DM also glycemic variability and metabolic control. With the data from DANCE study, we will describe the baseline dietary habits of a group of adults with type 1 diabetes and investigate the association between quality and quantity of carbohydrates and baseline glycemic markers. We have followed a validated FFQ to get the information on the quality and quantity of the carbohydrate and the association with glycemic marker was assessed by blood sample of the adults with T1DM.
+
+Type 1 diabetes mellitus (T1DM) is a type of autoimmune disease characterized by increased blood glucose level due to the inability of producing insulin. Patients need regular insulin injections and usually monitor their blood glucose level continuously. Glucose intake significantly affects the blood glucose level related to the daily dietary intake. This cross-sectional study compared dietary intake between T1DM patients participating in the DANCE study at Center for Diabetes in Stockholm and the general Swedish population. A validated FFQ was filled by 65 participants to investigate the food habits. The mean intake of different food groups was compared with the Swedish national dietary report, Riksmaten Vuxna. This comparison gave an overview of the diabetic dietary pattern. Study participants chose less refined carbohydrates, fruits, red meat, and more vegetables, poultry, and fish in comparison to the Swedish general population. We also evaluated the quality of carbohydrate intake and its relationship to glycemic variations. There is a positive correlation between sugar, wholegrain, energy intake and HbA1c, time in range, standard deviation of mean sensor glucose. 
 
 ## My research aim
-Investigate the association between quality of carbohydrates include glycemic index, and baseline glycemic markers in Stockholm T1DM population
-Three sub areas of this aim
-1. Create the baseline characteristics of the study population
-2. Investigate the quality of carbohyrdates and T1DM patients by using different statistical models
-3. Find the potential correlation/ models in terms of the quantity of carbohyrdates in T1DM patients
+
+(1) Describe the baseline dietary habits of a group of adults with T1DM participating in a clinical trial in Stockholm and compare them with the habits of the general Swedish population 
+
+(2) Investigate the association between quality of carbohydrates including glycemic index, and baseline glycemic markers in the same population. 
 
 ### Study Population
 A total of 65 type 1 diabetes patients were recruited from Akademiskt specialistcentrum, Solna, Stockholm 
@@ -16,10 +16,15 @@ In total of 55/65 participants were selected based on the active CGM time 28 day
 
 # Anthropometric measurement
   Weight/kg
+  
   Height/cm
+  
   Waist circumference (cm)
+  
   Systolic blood pressure (mmHg)
+  
   Diastolic blood pressure (mmHg)
+  
 # Criteria
   Over or equal to 20 years old.
   BMI> 18.5 kg/m2.
@@ -212,6 +217,7 @@ lm2meanmale<-lm( `Mean sensor glucose 2 (mmol/l)`~ `Wholegrain total (g)`
                  +BMI+ `Energy (kcal)` , data= Excl_activecgm2_Male)
 summary(lm2meanmale)
 ```
+
 
 
 
