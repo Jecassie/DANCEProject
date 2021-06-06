@@ -36,7 +36,6 @@ Summary(Table1_Basic_information)
 ggplot(Table1_Basic_information, aes( `Year of Born`, `Duration of Diabetes/yrs`))+
   geom_jitter( aes(colour= BMI))+
   facet_wrap(.~Gender)+
-  geom_smooth( method=lm, size=0.5, colour="black")+
   labs(title = "Year of born and duration of diabetes in terms of gender")
 ####Distribution of education and employment based on marital status
 ggplot(Table1_Basic_information, aes(`Highest level of education`, Employment))+ 
@@ -72,6 +71,9 @@ ggplot(Table1_Basic_information, aes( `Total dose of mealtime insulin /day`, BMI
   geom_abline()
 
 
+
+table1(~ Gender + `Duration of Diabetes/yrs` + `Has the patient been diagnosed with retinopathy?` + `Has the patient CGM  or FGM equipment?`+ `Have any of the relatives diabetes mellitus?` + `Highest level of education` +
+         Employment + `Does the patient use any tobacco?`+ `Any severe hypoglycemias during the last year?`, data= Table1_Basic_information)
 
 
 
