@@ -19,7 +19,7 @@ table1(~ Gender + `Duration of Diabetes/yrs` + `Has the patient been diagnosed w
          Employment + `Does the patient use any tobacco?`+ `Any severe hypoglycemias during the last year?`, data= Table1_Basic_information)
 ```
 
-![](Image/table1Basicinfo.jpeg)
+![](Image/table1Basicinfo.png)
 
 ```R
 table1(~`Energy (kcal)` + `Protein (g)` + `Fat(g)` + 
@@ -27,7 +27,7 @@ table1(~`Energy (kcal)` + `Protein (g)` + `Fat(g)` +
        `Sugar/g`, 
        data= Excl_Quality)
 ```
-![](Image/table1diet.jpeg)
+![](Image/table1diet.png)
 
 # Anthropometric measurement
   Weight/kg
