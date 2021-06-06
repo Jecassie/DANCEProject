@@ -14,6 +14,21 @@ Type 1 diabetes mellitus (T1DM) is a type of autoimmune disease characterized by
 A total of 65 type 1 diabetes patients were recruited from Akademiskt specialistcentrum, Solna, Stockholm 
 In total of 55/65 participants were selected based on the active CGM time 28 days (more than 60% per day)
 
+```R
+table1(~ Gender + `Duration of Diabetes/yrs` + `Has the patient been diagnosed with retinopathy?` + `Has the patient CGM  or FGM equipment?`+ `Have any of the relatives diabetes mellitus?` + `Highest level of education` +
+         Employment + `Does the patient use any tobacco?`+ `Any severe hypoglycemias during the last year?`, data= Table1_Basic_information)
+```
+
+![](Image/table1Basicinfo.jpeg)
+
+```R
+table1(~`Energy (kcal)` + `Protein (g)` + `Fat(g)` + 
+         `Carbohydrate (g)`+ `Fibre (g)` + `Wholegrain total (g)`+
+       `Sugar/g`, 
+       data= Excl_Quality)
+```
+![](Image/table1diet.jpeg)
+
 # Anthropometric measurement
   Weight/kg
   
