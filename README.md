@@ -119,15 +119,11 @@ ggplot(Excl_Quality, aes(`HbA1c (mmol/mol)`, `Sugar/g`))+
 
 ## Statistical Analysis (28 days result from CGM period 1 to evaluate the quality of carbs)
 ### Methods of statistical analysis
-Mean and standard deviation
 Multiple Linear Regression (95% confidence level)
-         Dependent Variables (y)
-                  HbA1c/ Mean blood glucose level.
-                  Coefficient of variations of mean blood glucose level.
-                  Standard Deviation of mean blood glucose level.
-         Independent Variables (x)
-                  Sugar/g, wholegrain total (g), energy (kcal)
-                  Duration of diabetes/years, gender, BMI as correction
+ 
+Dependent Variables (y): HbA1c/ Mean blood glucose level, Coefficient of variations of mean blood glucose level, Standard Deviation of mean blood glucose level.
+
+Independent Variables (x): Sugar/g, wholegrain total (g), energy (kcal), Duration of diabetes/years, gender, BMI as correction
 
 ```R
 Excl_Quality_Male<- Excl_Quality[Excl_Quality$Gender=="Male",]
