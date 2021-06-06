@@ -117,10 +117,17 @@ ggplot(Excl_Quality, aes(`HbA1c (mmol/mol)`, `Sugar/g`))+
 ```
 ![](Image/sugarandhba1c.jpeg)
 
-## Statistical Analysis 
-## Since it is an ongoing project, I will NOT show the results but rather than codes
-
-### 28 days result from CGM period 1 to evaluate the quality of carbs
+## Statistical Analysis (28 days result from CGM period 1 to evaluate the quality of carbs)
+### Methods of statistical analysis
+Mean and standard deviation
+Multiple Linear Regression (95% confidence level)
+         Dependent Variables (y)
+                  HbA1c/ Mean blood glucose level.
+                  Coefficient of variations of mean blood glucose level.
+                  Standard Deviation of mean blood glucose level.
+         Independent Variables (x)
+                  Sugar/g, wholegrain total (g), energy (kcal)
+                  Duration of diabetes/years, gender, BMI as correction
 
 ```R
 Excl_Quality_Male<- Excl_Quality[Excl_Quality$Gender=="Male",]
@@ -183,55 +190,7 @@ plot(lmtime,4)
 I also look at other independent factors (y) such as means sensor gluocse 28 days and its SD and CV with the same format
 
 
-
-### 14 days result from CGM period 2 to evaluate the quality of carbs 
-### We mainly focus on 28 days result but for the comprehensive purpose we also look at 14 days result 
-
-```R
-lm2hb<-lm( `HbA1c (mmol/mol)`~`Duration of Diabetes/yrs`+ Gender+BMI+ `Sugar/g`+`Wholegrain total (g)`+
-             `Energy (kcal)`, data= Excl_activecgm2)
-summary(lm2hb)
-
-lm2hbfemale<-lm( `HbA1c (mmol/mol)`~ 
-                  `Wholegrain total (g)`
-                +BMI+ `Energy (kcal)` , data= Excl_activecgm2_Female)
-summary(lm2hbfemale)
-
-lm2hbmale<-lm( `HbA1c (mmol/mol)`~ `Wholegrain total (g)`
-              +BMI+ `Energy (kcal)` , data= Excl_activecgm2_Male)
-summary(lm2hbmale)
-```
-
-```R
-lm2time<-lm( `Time in Range 2 (%)`~`Duration of Diabetes/yrs`+ Gender+BMI+ `Sugar/g`+`Wholegrain total (g)`+
-             `Energy (kcal)`, data= Excl_activecgm2)
-summary(lm2time)
-
-lm2timefemale<-lm( `Time in Range 2 (%)`~ 
-                   `Wholegrain total (g)`
-                 +BMI+ `Energy (kcal)` , data= Excl_activecgm2_Female)
-summary(lm2timefemale)
-
-lm2timemale<-lm( `Time in Range 2 (%)`~ `Wholegrain total (g)`
-               +BMI+ `Energy (kcal)` , data= Excl_activecgm2_Male)
-summary(lm2timemale)
-```
-
-```R
-lm2mean<-lm( `Mean sensor glucose 2 (mmol/l)`~`Duration of Diabetes/yrs`+ Gender+BMI+
-               `Sugar/g`+`Wholegrain total (g)`+
-             `Energy (kcal)`, data= Excl_activecgm2)
-summary(lm2mean)
-
-lm2meanfemale<-lm( `Mean sensor glucose 2 (mmol/l)`~ 
-                     `Wholegrain total (g)`
-                   +BMI+ `Energy (kcal)` , data= Excl_activecgm2_Female)
-summary(lm2meanfemale)
-
-lm2meanmale<-lm( `Mean sensor glucose 2 (mmol/l)`~ `Wholegrain total (g)`
-                 +BMI+ `Energy (kcal)` , data= Excl_activecgm2_Male)
-summary(lm2meanmale)
-```
+### We mainly focus on 28 days result but for the comprehensive purpose we also look at 14 days result. There is no significant at 14 days result. 
 
 
 
