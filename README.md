@@ -2,7 +2,7 @@
 
 ## About this project
 
-Type 1 diabetes mellitus (T1DM) is a type of autoimmune disease characterized by increased blood glucose level due to the inability of producing insulin. Patients need regular insulin injections and usually monitor their blood glucose level continuously. Glucose intake significantly affects the blood glucose level related to the daily dietary intake. This cross-sectional study compared dietary intake between T1DM patients participating in the DANCE study at Center for Diabetes in Stockholm and the general Swedish population. A validated FFQ was filled by 65 participants to investigate the food habits. The mean intake of different food groups was compared with the Swedish national dietary report, Riksmaten Vuxna. This comparison gave an overview of the diabetic dietary pattern. Study participants chose less refined carbohydrates, fruits, red meat, and more vegetables, poultry, and fish in comparison to the Swedish general population. We also evaluated the quality of carbohydrate intake and its relationship to glycemic variations. There is a positive correlation between sugar, wholegrain, energy intake and HbA1c, time in range, standard deviation of mean sensor glucose. 
+Type 1 diabetes mellitus (T1DM) is a type of autoimmune disease characterized by increased blood glucose level due to the inability of producing insulin. Patients need regular insulin injections and usually monitor their blood glucose level continuously. Glucose intake significantly affects the blood glucose level related to the daily dietary intake. This cross-sectional study compared dietary intake between T1DM patients participating in the DANCE study at Center for Diabetes in Stockholm and the general Swedish population. A validated FFQ was filled by 65 participants to investigate the food habits. The mean intake of different food groups was compared with the Swedish national dietary report, Riksmaten-vuxna 2010-11. This comparison gave an overview of the diabetic dietary pattern. Study participants chose less refined carbohydrates, fruits, red meat, and more vegetables, poultry, and fish in comparison to the Swedish general population. We also evaluated the quality of carbohydrate intake and its relationship to glycemic variations. There is a positive correlation between HbA1c and sugar intake, and time in range and energy intake. There is a negative correlation between time in range and sugar and wholegrain intake, standard deviation of mean sensor glucose and energy intake.
 
 ## My research aim
 
@@ -11,23 +11,8 @@ Type 1 diabetes mellitus (T1DM) is a type of autoimmune disease characterized by
 (2) Investigate the association between quality of carbohydrates including glycemic index, and baseline glycemic markers in the same population. 
 
 ### Study Population
-A total of 65 type 1 diabetes patients were recruited from Akademiskt specialistcentrum, Solna, Stockholm 
+A total of 65 type 1 diabetes patients were recruited from Akademiskt specialistcentrum, Solna, Stockholm and other region.
 In total of 55/65 participants were selected based on the active CGM time 28 days (more than 60% per day)
-
-```R
-table1(~ Gender + `Duration of Diabetes/yrs` + `Has the patient been diagnosed with retinopathy?` + `Has the patient CGM  or FGM equipment?`+ `Have any of the relatives diabetes mellitus?` + `Highest level of education` +
-         Employment + `Does the patient use any tobacco?`+ `Any severe hypoglycemias during the last year?`, data= Table1_Basic_information)
-```
-
-![](Image/table1Basicinfo.png)
-
-```R
-table1(~`Energy (kcal)` + `Protein (g)` + `Fat(g)` + 
-         `Carbohydrate (g)`+ `Fibre (g)` + `Wholegrain total (g)`+
-       `Sugar/g`, 
-       data= Excl_Quality)
-```
-![](Image/table1diet.png)
 
 # Anthropometric measurement
   Weight/kg
@@ -47,8 +32,15 @@ table1(~`Energy (kcal)` + `Protein (g)` + `Fat(g)` +
   No pregnant female or lactate female.
   Have been diagnosis T1DM for over 1 year.
   C-peptide less than 0.3 ng/ml.
+  
+### R packages used
 
-The following codes and graphs show the baseline characteristics of our study population
+```library(ggplot2)
+library(ggpubr)
+library(tidyverse)
+library(broom)
+library(AICcmodavg)
+library(bruceR)```
 
 ```R
 ggplot(Table1_Basic_information, aes( `Year of Born`, `Duration of Diabetes/yrs`))+
@@ -188,6 +180,15 @@ I also look at other independent factors (y) such as means sensor gluocse 28 day
 
 ### We mainly focus on 28 days result but for the comprehensive purpose we also look at 14 days result. There is no significant at 14 days result. 
 
+# Discussion 
 
+The Diabetes and Nutrition Study Group (DNSG) of the European Association for the Study of Diabetes (EASD) recommends carbohydrate intake to be ranging from 45% to 60% of total energy intake. It also recommends including more wholegrain alternatives, vegetables and legumes in the diet as a part of T1DM management. The food habit of our participants really reflected most of the recommendations. Patients with T1DM are suggested to limit some food items to keep a stable blood glucose level. Quality of carbohydrate also plays an important role in good diabetic management. From the result we can see most of the participants have avoided sweetened beverages and high energy density foods i.e., sweets, chocolates, and bakery items. Despite of all the recommendations there is still a lot of controversies about the low and high carbohydrate containing diet, usefulness of low glycemic index (GI) foods and following a special meal plan. So far, no study has provided clear evidence to prove the effectivity of any of these. As whatever the food content is, it directly affects the blood glucose level. 
+
+Carbohydrates has three types of subcategories which are sugar, starch, and fiber. Sugar can be found in candy, desserts, processed foods etc. Another main resource of sugar come from natural products such as milk and fruits. Added sugar play an important role in the management of diabetes. The current guidelines recommend reducing the intake of added sugar as much as possible. Starch is a form of complex carbohydrates where our body need to breakdown starch into the energy form to support daily activities. Common starches are bread, potato, and corns. Fiber is another form of complex carbohydrates. Fiber could help prevent stomach or intestinal problems. They may also help to lower cholesterol and blood glucose level. Nuts, seeds, beans, and whole grains are good resources of fiber. 
+High fiber diet is an important component of diabetes management, resulting in improvements in measure of glycemic variation, blood lipids, body weight and inflammation. Another study suggested to increase dietary fiber from 15 g/day to 35g/day for diabetic patients, and also suggested that increase fiber intake by replace refined grains products with wholegrain (21). Other studies suggested that risk reduction of non-communicable diseases association with a range of critical outcomes was great when daily intake of fiber was between 25g to 29g. However, in our study, we showed a negative correlation (estimation= -0.16, p= 0.006) between wholegrain intake and time in range. This could be explained by the fact that wholegrain is a long-term dietary goal and we do not have follow-up yet to investigate the long-term effects.
+
+Findings from epidemiological studies suggest that the benefits of wholegrain intake on human health are related to improved body weight, insulin sensitivity, lipid metabolism, inflammation and antioxidant activity. Among the clinical trials with positive findings on insulin metabolism, a study in hyper insulinemic overweight individuals showed that a 6-week period with a wholegrain rich diet, composed of 80% wheat, reduced fasting plasma insulin levels and improved insulin resistance as compared with a refined cereal diet. Another two other studies reported that high fiber bread consumption compared with refined wheat bread significantly increased the first phase of insulin secretion, suggesting an improved beta cell function reduced fasting insulin levels and 24-h urinary C-peptide excretion.
+
+In another aspect of carbohydrates, we also look at the effects of glycemic index (GI) and glycemic variations (GV). The glycemic index is a ranking of carbohydrates on a scale from 0 to 100 according to the extent to which they raise blood glucose levels after eating (27). Foods with a high GI are those which are rapidly digested, absorbed, and metabolized and result in marked fluctuations in blood glucose levels. Low GI carbohydrates – the ones that produce smaller fluctuations in your blood glucose and insulin levels – is one of the secrets to long-term health, reducing your risk of type 2 diabetes and heart disease. We designed three GI categories based on the agreements. High GI group refers to FFQ listed food has over 70 while medium GI group has a range of 56~69. Low GI food group is those food had lower than 55.  We did not find any correlation between GI and glycemic variation within our study no matter gender. In a similar study related to GI and type 2 diabetes, they found that major non-dietary factors were unable to explain the strength of association between T2DM and GI. Another meta-analysis of intervention studies finds that the relations with GI and dietary fiber is independent of one another, and additive, for the reversal of T2DM risk factors: fasting blood glucose and glycated protein.
 
 
