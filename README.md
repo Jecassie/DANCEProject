@@ -1,6 +1,6 @@
 # DANCE Project
 
-## About this project
+# Introduction
 
 Type 1 diabetes mellitus (T1DM) is a type of autoimmune disease characterized by increased blood glucose level due to the inability of producing insulin. Patients need regular insulin injections and usually monitor their blood glucose level continuously. Glucose intake significantly affects the blood glucose level related to the daily dietary intake. This cross-sectional study compared dietary intake between T1DM patients participating in the DANCE study at Center for Diabetes in Stockholm and the general Swedish population. A validated FFQ was filled by 65 participants to investigate the food habits. The mean intake of different food groups was compared with the Swedish national dietary report, Riksmaten-vuxna 2010-11. This comparison gave an overview of the diabetic dietary pattern. Study participants chose less refined carbohydrates, fruits, red meat, and more vegetables, poultry, and fish in comparison to the Swedish general population. We also evaluated the quality of carbohydrate intake and its relationship to glycemic variations. There is a positive correlation between HbA1c and sugar intake, and time in range and energy intake. There is a negative correlation between time in range and sugar and wholegrain intake, standard deviation of mean sensor glucose and energy intake.
 
@@ -10,11 +10,19 @@ Type 1 diabetes mellitus (T1DM) is a type of autoimmune disease characterized by
 
 (2) Investigate the association between quality of carbohydrates including glycemic index, and baseline glycemic markers in the same population. 
 
-### Study Population
+## Study Population
 A total of 65 type 1 diabetes patients were recruited from Akademiskt specialistcentrum, Solna, Stockholm and other region.
 In total of 55/65 participants were selected based on the active CGM time 28 days (more than 60% per day)
-
-# Anthropometric measurement
+  
+## Criteria
+  Over or equal to 20 years old.
+  BMI> 18.5 kg/m2.
+  No sever diseases such as kidney failures and cardiovascular diseases.
+  No pregnant female or lactate female.
+  Have been diagnosis T1DM for over 1 year.
+  C-peptide less than 0.3 ng/ml.
+  
+  ## Anthropometric measurement
   Weight/kg
   
   Height/cm
@@ -25,15 +33,7 @@ In total of 55/65 participants were selected based on the active CGM time 28 day
   
   Diastolic blood pressure (mmHg)
   
-# Criteria
-  Over or equal to 20 years old.
-  BMI> 18.5 kg/m2.
-  No sever diseases such as kidney failures and cardiovascular diseases.
-  No pregnant female or lactate female.
-  Have been diagnosis T1DM for over 1 year.
-  C-peptide less than 0.3 ng/ml.
-  
-### R packages used
+## R packages used
 
 ```library(ggplot2)
 library(ggpubr)
@@ -109,8 +109,8 @@ ggplot(Excl_Quality, aes(`HbA1c (mmol/mol)`, `Sugar/g`))+
 ```
 ![](Image/sugarandhba1c.jpeg)
 
-## Statistical Analysis (28 days result from CGM period 1 to evaluate the quality of carbs)
-### Methods of statistical analysis
+# Statistical Analysis (28 days result from CGM period 1 to evaluate the quality of carbs)
+## Methods of statistical analysis
 Multiple Linear Regression (95% confidence level)
  
 Dependent Variables (y): HbA1c/ Mean blood glucose level, Coefficient of variations of mean blood glucose level, Standard Deviation of mean blood glucose level.
@@ -178,7 +178,7 @@ plot(lmtime,4)
 I also look at other independent factors (y) such as means sensor gluocse 28 days and its SD and CV with the same format
 
 
-### We mainly focus on 28 days result but for the comprehensive purpose we also look at 14 days result. There is no significant at 14 days result. 
+## We mainly focus on 28 days result but for the comprehensive purpose we also look at 14 days result. There is no significant at 14 days result. 
 
 # Discussion 
 
